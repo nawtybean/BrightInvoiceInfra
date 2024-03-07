@@ -3,13 +3,12 @@ resource "aws_lightsail_static_ip" "bright_invoice_lightsail_ip" {
 }
 
 resource "aws_lightsail_instance" "bright_invoice_instance" {
-  name = var.lightsail_instance_name
+  name              = var.lightsail_instance_name
   availability_zone = var.az_zone
   blueprint_id      = var.blueprint_id
   bundle_id         = var.bundle_id
-  
-}
 
+}
 
 resource "aws_lightsail_static_ip_attachment" "instance_ip_association" {
   static_ip_name = aws_lightsail_static_ip.bright_invoice_lightsail_ip.id
